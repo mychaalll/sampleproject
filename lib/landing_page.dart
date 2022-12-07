@@ -23,17 +23,73 @@ class _LandingPageState extends State<LandingPage> {
       body: SafeArea(
         child: Container(
           child: Center(
-            child: ListView(
+            child: Column(
               children: [
+                SizedBox(height: 70.0),
                 Container(
-                  color: Colors.red,
                   child: Image.asset(
                     'images/Dilemma.png',
-                    height: 600,
                     
                   ),
                 ),
-                SizedBox(height: 30.0),
+                SizedBox(height: 20.0),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  child: Container(
+                    child: Text(
+                      'Lorem ipsum dolor sit ametaeda',
+                      textAlign: TextAlign.center,
+                       style: TextStyle(
+                        
+                        fontWeight: FontWeight.w900,
+                        fontSize: 30,
+                        shadows: [
+                          Shadow(
+                            blurRadius: 10.0,
+                            color: Colors.grey,
+                            offset: Offset(5.0, 5.0),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 40.0),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 40.0),
+                  child: Container(
+                    child: Text(
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tristique egestas dui lacinia mauris lacus urna, id blandit telly. Magna facilisi magna augue dolor eu congue purus, suspicit.',
+                      textAlign: TextAlign.justify,
+                       style: TextStyle(
+                        
+                        fontWeight: FontWeight.normal,
+                        fontSize: 20,
+                        
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 40.0),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 40.0),
+                  child: Container(
+                    padding: EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      color: Color(0xFFF2BA05),
+                      borderRadius: BorderRadius.circular(12)),
+                    child: Center(
+                      child: Text('Get Started!',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        )
+                      )
+                    )
+                  ),
+                ),
+                
               ],
             ),
           ),
