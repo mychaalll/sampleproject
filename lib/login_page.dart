@@ -22,44 +22,48 @@ class _LoginPageState extends State<LoginPage> {
       backgroundColor: Color.fromARGB(209, 238, 238, 238),
       body: SafeArea(
         child: Container(
-          child: Column(
+          child: ListView(
             children: [
-              Column(
-                children: [
-                  Container(
-                    color: Color(0xFFF2BA05),
-                    alignment: Alignment.centerLeft,
-                    child:Padding(
-                      padding: const EdgeInsets.all(25.0),
-                      child: (
-                        Text(
-                          'Welcome to \nDementia \nAssistance \nApplication',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w900,
-                            fontSize: 35,
-                            shadows: [
-                              Shadow(
-                                blurRadius: 10.0,
-                                color: Colors.grey,
-                                offset: Offset(5.0, 5.0),
-                              ),
-                            ],
-                          ),
-                        )
+              Container(
+                color: Color(0xFFF2BA05),
+                child: Stack(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        top: 20,
+                        left: 20,
                       ),
-                    ),
-                  ), 
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Color(0xFFF2BA05),
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(50),
-                        bottomRight: Radius.circular(50),
+                      child: Container(
+                        alignment: Alignment.topLeft,
+                        child:(
+                          Text(
+                            'Welcome to \nDementia \nAssistance \nApplication',
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w900,
+                              fontSize: 35,
+                              shadows: [
+                                Shadow(
+                                  blurRadius: 10.0,
+                                  color: Colors.grey,
+                                  offset: Offset(5.0, 5.0),
+                                ),
+                              ],
+                            ),
+                          )
+                        ),
+                      ),
+                    ), 
+                    Container(
+                      alignment: Alignment.bottomRight,
+                      child: Column(children: [
+                      SizedBox(height: 100),
+                      Image.asset('images/laboratoryAssistant.png'),
+                      ],
                       )
                     ),
-                    height: 200.0,
-                  ),
-                ],
+                  ],
+                ),
               ),
                 SizedBox(height: 40),
 
