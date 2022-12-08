@@ -3,6 +3,7 @@ import 'package:sampleproject/choice_page.dart';
 import 'package:sampleproject/create_account.dart';
 import 'package:sampleproject/email_verification_sent.dart';
 import 'package:sampleproject/forgot_password.dart';
+import 'package:sampleproject/guardian/guardian-home.dart';
 import 'package:sampleproject/landing_page.dart';
 import 'package:sampleproject/login_page.dart';
 import 'package:sampleproject/email_verification.dart';
@@ -30,8 +31,10 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.blue,
+       
       ),
-      home: LoginPage(),
+      
+      home: guardianHomePage(),
     );
   }
 }
