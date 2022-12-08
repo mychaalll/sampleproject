@@ -7,12 +7,12 @@ class MemoryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Padding(
       padding: const EdgeInsets.only(
-        
         left: 20.0,
+        right: 20.0,
         bottom: 20.0),
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.red,
+          color: Color(0xFFE86166),
           borderRadius: BorderRadius.circular(15)
         ),
         width: 200,
@@ -31,7 +31,7 @@ class MemoryCard extends StatelessWidget {
                 
                 "Image title",
                 style: TextStyle(
-                  fontSize: 35, 
+                  fontSize: 25, 
                   fontWeight: FontWeight.w700
                 ),
               ),

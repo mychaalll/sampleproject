@@ -18,8 +18,8 @@ class _CreateAccountState extends State<CreateAccount> {
         leading: (
           Padding(
             padding: const EdgeInsets.only(
-              top: 15, 
-              left: 15,
+              top: 20, 
+              left: 20,
             ),
             child: IconButton(
               onPressed: () => print("Search Pressed"), 
