@@ -7,6 +7,7 @@ import 'package:sampleproject/guardian/guardian-home.dart';
 import 'package:sampleproject/landing_page.dart';
 import 'package:sampleproject/login_page.dart';
 import 'package:sampleproject/email_verification.dart';
+import 'package:sampleproject/memory/memory_home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,12 +31,9 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
-       
+        primarySwatch: Colors.red,
       ),
-      
-      home: guardianHomePage(),
+      home: MemoryHomePage(),
     );
   }
 }
-
