@@ -30,6 +30,7 @@ class MemoryImageTab extends StatelessWidget {
                 child: Text('Spare Container'),
               ),
             ),
+            //container for gridview
             Expanded(
               child: Container(
                   child: GridView.builder(
