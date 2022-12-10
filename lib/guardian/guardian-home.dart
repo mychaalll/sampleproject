@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-
 import '../widgets/memory_card.dart';
+import '../widgets/upcoming_schedule_card.dart';
 
 class guardianHomePage extends StatefulWidget {
   const guardianHomePage({Key? key}) : super(key: key);
@@ -20,7 +20,7 @@ class _guardianHomePageState extends State<guardianHomePage> {
             iconTheme: IconThemeData(color: Colors.black),
             backgroundColor: Color(0xFFE86166),
             elevation: 0,
-            expandedHeight: 300,
+            expandedHeight: 250,
             floating: false,
             pinned: true,
             actions: [
@@ -35,102 +35,166 @@ class _guardianHomePageState extends State<guardianHomePage> {
               ),
             ],
             flexibleSpace: FlexibleSpaceBar(
-              background: Container(
-                  color: Color(0xFFF2BA05),
-                  child: ListView(
-                    children: [
-                      SizedBox(
-                        height: 56.0,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                        child: Container(
-                            height: 180,
-                            child: ListView(
+              background: Expanded(
+                child: Container(
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                      colors: [
+                        Color(0xFFF2BA05),
+                        Color(0xFFE86166),
+                      ],
+                      stops: [
+                        0.50,
+                        1,
+                      ],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                    )),
+                    child: ListView(
+                      children: [
+                        //items in flexappbar
+                        SizedBox(
+                          height: 60.0,
+                        ),
+                        //full container of hello guardian and icon
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [
+                                  Color(0xFFE86166),
+                                  Color.fromARGB(255, 248, 73, 117),
+                                  Color.fromARGB(255, 200, 73, 223),
+                                  Color.fromARGB(255, 216, 55, 245)
+                                ],
+                                stops: [0.1, 0.3, 0.8, 1],
+                                begin: Alignment.bottomRight,
+                                end: Alignment.topLeft,
+                              ),
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: Row(
                               children: [
-                                SizedBox(
-                                  height: 30,
-                                ),
-                                Text(
-                                  'Welcome, Guardian!',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w900,
-                                    fontSize: 35,
+                                Expanded(
+                                  flex: 1,
+                                  child: Container(
+                                    child: Icon(
+                                      Icons.account_circle_rounded,
+                                      size: 75,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 ),
-                                Text(
-                                  'Have a nice day!',
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
+                                Expanded(
+                                  flex: 3,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 20.0, top: 20, bottom: 20),
+                                    child: Container(
+                                        child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Hello,',
+                                          style: TextStyle(
+                                              fontSize: 25,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.white),
+                                        ),
+                                        Text(
+                                          'Guardian',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.w700,
+                                              fontSize: 35,
+                                              color: Colors.white),
+                                        ),
+                                      ],
+                                    )),
                                   ),
                                 ),
                               ],
-                            )),
-                      ),
-                    ],
-                  )),
+                            ),
+                          ),
+                        ),
+                      ],
+                    )),
+              ),
               centerTitle: true,
               title: Text(
                 'H O M E',
-                style: TextStyle(
-                  color: Colors.black,
-                ),
+                style:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
               ),
             ),
           ),
           //categories
           SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.only(top:25.0),
+              padding: const EdgeInsets.only(top: 25.0),
               child: Container(
                 height: 80,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: [
+                    //memories button
                     Padding(
                       padding: const EdgeInsets.only(left: 20.0),
                       child: Container(
                         padding: EdgeInsets.all(20.0),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          color: Color(0xFFE86166),
-                        ),
+                            borderRadius: BorderRadius.circular(50),
+                            gradient: LinearGradient(
+                              colors: [
+                                Color(0xFFE86166),
+                                Color.fromARGB(255, 245, 133, 59),
+                              ],
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                            )),
                         child: Row(
                           children: [
-                            Icon(Icons.photo_album_outlined, size: 30, color: Colors.white),
+                            Icon(Icons.photo_album_outlined,
+                                size: 30, color: Colors.white),
                             SizedBox(width: 10),
                             Text(
                               "Memories",
                               style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20,
-                                color: Colors.white
-                              ),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20,
+                                  color: Colors.white),
                             )
                           ],
                         ),
                       ),
                     ),
+                    //schedules button
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: Container(
                         padding: EdgeInsets.all(20.0),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          color: Color(0xFFE86166),
-                        ),
+                            borderRadius: BorderRadius.circular(50),
+                            gradient: LinearGradient(
+                              colors: [
+                                Color(0xFFE86166),
+                                Color.fromARGB(255, 245, 133, 59),
+                              ],
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                            )),
                         child: Row(
                           children: [
-                            Icon(Icons.calendar_month_outlined, size: 30, color: Colors.white),
+                            Icon(Icons.calendar_month_outlined,
+                                size: 30, color: Colors.white),
                             SizedBox(width: 10),
                             Text(
                               "Schedules",
                               style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20,
-                                color: Colors.white
-                              ),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20,
+                                  color: Colors.white),
                             )
                           ],
                         ),
@@ -141,12 +205,19 @@ class _guardianHomePageState extends State<guardianHomePage> {
                       child: Container(
                         padding: EdgeInsets.all(20.0),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          color: Color(0xFFE86166),
-                        ),
+                            borderRadius: BorderRadius.circular(50),
+                            gradient: LinearGradient(
+                              colors: [
+                                Color(0xFFE86166),
+                                Color.fromARGB(255, 245, 133, 59),
+                              ],
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                            )),
                         child: Row(
                           children: [
-                            Icon(Icons.pending_actions_outlined, size: 30, color: Colors.white),
+                            Icon(Icons.pending_actions_outlined,
+                                size: 30, color: Colors.white),
                             SizedBox(width: 10),
                             Text(
                               "Reminders",
@@ -174,6 +245,7 @@ class _guardianHomePageState extends State<guardianHomePage> {
               height: 300,
               child: Column(
                 children: [
+                  //title
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -192,10 +264,9 @@ class _guardianHomePageState extends State<guardianHomePage> {
                         child: Text(
                           'See all',
                           style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                            color: Colors.grey[600]
-                          ),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                              color: Colors.grey[600]),
                         ),
                       )
                     ],
@@ -204,6 +275,7 @@ class _guardianHomePageState extends State<guardianHomePage> {
                       child: ListView(
                     scrollDirection: Axis.horizontal,
                     children: [
+                      //for memory cards. change values here
                       MemoryCard(),
                       MemoryCard(),
                       MemoryCard(),
@@ -222,6 +294,7 @@ class _guardianHomePageState extends State<guardianHomePage> {
               height: 380,
               child: Column(
                 children: [
+                  //title
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -240,295 +313,39 @@ class _guardianHomePageState extends State<guardianHomePage> {
                         child: Text(
                           'See all',
                           style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                            color: Colors.grey
-                          ),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                              color: Colors.grey),
                         ),
                       ),
-                      
                     ],
                   ),
+                  //schedule cards
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
                     child: Expanded(
-                      child: Column(
-                        children: [
-                          Container(
-                            height: 80.0,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                    top: 10.0,
-                                    left:10.0, 
-                                    bottom: 10.0,
-                                    ),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: Colors.blue,
-                                      borderRadius: BorderRadius.circular(12.0)
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Icon(Icons.notifications_active_outlined,
-                                      size: 40,
-                                      color: Colors.white,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(
-                                      top:12.0,
-                                      left: 20.0,
-                                      bottom: 12.0
-                                    ),
-                                    child: Column(
-                                      children: [
-                                        Align(
-                                          alignment: Alignment.topLeft,
-                                          child: Text(
-                                            "December 8 2022",
-                                            textAlign: TextAlign.left,
-                                            style: TextStyle(
-                                              fontWeight: FontWeight.w700,
-                                              fontSize: 20,
-                                              color: Colors.black
-                                            ),
-                                          ),
-                                        ),
-                                        SizedBox(height: 5),
-                                        Align(
-                                          alignment: Alignment.bottomLeft,
-                                          child: Text(
-                                            "Breakfast with you hehe",
-                                            textAlign: TextAlign.left,
-                                            style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 15,
-                                              color: Colors.grey[600]
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                    top: 10.0,
-                                    right:10.0, 
-                                    bottom: 10.0,
-                                  ),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: Colors.blue,
-                                      borderRadius: BorderRadius.circular(12)
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(10.0),
-                                      child: Text('07:00',
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.w700,
-                                          fontSize: 20,
-                                          color: Colors.grey[200],
-                                        )
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          SizedBox(height: 20.0),
-                          Container(
-                            height: 80.0,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                    top: 10.0,
-                                    left:10.0, 
-                                    bottom: 10.0,
-                                    ),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: Colors.blue,
-                                      borderRadius: BorderRadius.circular(12.0)
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Icon(Icons.notifications_active_outlined,
-                                      size: 40,
-                                      color: Colors.white,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(
-                                      top:12.0,
-                                      left: 20.0,
-                                      bottom: 12.0
-                                    ),
-                                    child: Column(
-                                      children: [
-                                        Align(
-                                          alignment: Alignment.topLeft,
-                                          child: Text(
-                                            "December 8 2022",
-                                            textAlign: TextAlign.left,
-                                            style: TextStyle(
-                                              fontWeight: FontWeight.w700,
-                                              fontSize: 20,
-                                              color: Colors.black
-                                            ),
-                                          ),
-                                        ),
-                                        SizedBox(height: 5),
-                                        Align(
-                                          alignment: Alignment.bottomLeft,
-                                          child: Text(
-                                            "Lunch with you hehe",
-                                            textAlign: TextAlign.left,
-                                            style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 15,
-                                              color: Colors.grey[600]
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                    top: 10.0,
-                                    right:10.0, 
-                                    bottom: 10.0,
-                                  ),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: Colors.blue,
-                                      borderRadius: BorderRadius.circular(12)
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(10.0),
-                                      child: Text('12:00',
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.w700,
-                                          fontSize: 20,
-                                          color: Colors.grey[200],
-                                        )
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          SizedBox(height: 20.0),
-                          Container(
-                            height: 80.0,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                    top: 10.0,
-                                    left:10.0, 
-                                    bottom: 10.0,
-                                    ),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: Colors.blue,
-                                      borderRadius: BorderRadius.circular(12.0)
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Icon(Icons.notifications_active_outlined,
-                                      size: 40,
-                                      color: Colors.white,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(
-                                      top:12.0,
-                                      left: 20.0,
-                                      bottom: 12.0
-                                    ),
-                                    child: Column(
-                                      children: [
-                                        Align(
-                                          alignment: Alignment.topLeft,
-                                          child: Text(
-                                            "December 14 2022",
-                                            textAlign: TextAlign.left,
-                                            style: TextStyle(
-                                              fontWeight: FontWeight.w700,
-                                              fontSize: 20,
-                                              color: Colors.black
-                                            ),
-                                          ),
-                                        ),
-                                        SizedBox(height: 5),
-                                        Align(
-                                          alignment: Alignment.bottomLeft,
-                                          child: Text(
-                                            "Dinner with you hehe",
-                                            textAlign: TextAlign.left,
-                                            style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 15,
-                                              color: Colors.grey[600]
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                    top: 10.0,
-                                    right:10.0, 
-                                    bottom: 10.0,
-                                  ),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: Colors.blue,
-                                      borderRadius: BorderRadius.circular(12)
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(10.0),
-                                      child: Text('18:00',
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.w700,
-                                          fontSize: 20,
-                                          color: Colors.grey[200],
-                                        )
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      )
-                    ),
+                        child: Column(
+                      children: [
+                        //schedule cards, change function values to change inputs
+                        UpSchedCard(
+                          scheduleDate: "December 7 , 2022",
+                          scheduleDetails: "Breakfast with you hehe",
+                          scheduleTime: "07:00",
+                        ),
+                        SizedBox(height: 20.0),
+                        UpSchedCard(
+                          scheduleDate: "December 8 , 2022",
+                          scheduleDetails: "Lunch with you hehe",
+                          scheduleTime: "12:00",
+                        ),
+                        SizedBox(height: 20.0),
+                        UpSchedCard(
+                          scheduleDate: "December 12 , 2022",
+                          scheduleDetails: "Dinner with you hehe",
+                          scheduleTime: "18:00",
+                        ),
+                      ],
+                    )),
                   )
                 ],
               ),
@@ -544,6 +361,7 @@ class _guardianHomePageState extends State<guardianHomePage> {
               child: Column(
                 children: [
                   Row(
+                    //title
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Padding(
@@ -561,136 +379,137 @@ class _guardianHomePageState extends State<guardianHomePage> {
                         child: Text(
                           'See all',
                           style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                            color: Colors.grey
-                          ),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                              color: Colors.grey),
                         ),
                       ),
-                      
                     ],
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
                     child: Expanded(
-                      child: Column(
-                        children: [
-                          Container(
-                            height: 100.0,
-                            decoration: BoxDecoration(
-                              color: Color(0xFFE86166),
-                              borderRadius: BorderRadius.circular(15.0)
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(left:15.0),
-                                  child: Icon(Icons.date_range,
+                        child: Column(
+                      children: [
+                        //upcoming tile
+                        Container(
+                          height: 100.0,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              gradient: LinearGradient(
+                                colors: [
+                                  Color(0xFFE86166),
+                                  Color.fromARGB(255, 245, 133, 59),
+                                ],
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                              )),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(left: 15.0),
+                                child: Icon(
+                                  Icons.date_range,
                                   size: 70,
                                   color: Colors.white,
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 20.0, horizontal: 10.0),
+                                child: Container(
+                                  child: Text(
+                                    "UPCOMING",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 20,
+                                        color: Colors.white),
                                   ),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                    vertical: 20.0, 
-                                    horizontal: 10.0
-                                  ),
-                                  child: Container(
-                                    child: Text(
-                                      "UPCOMING",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.w700,
-                                          fontSize: 25,
-                                          color: Colors.white),
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                    top: 20.0,
-                                    bottom: 20.0,
-                                    right: 15.0
-                                  ),
-                                  child: Container(
-                                    child: Text('6 Tasks',
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    top: 20.0, bottom: 20.0, right: 15.0),
+                                child: Container(
+                                  child: Text('6 Tasks',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                         fontWeight: FontWeight.w700,
                                         fontSize: 25,
                                         color: Colors.grey[200],
-                                      )
-                                    ),
-                                  ),
+                                      )),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
-                          SizedBox(height: 20.0),
-                          Container(
-                            height: 100.0,
-                            decoration: BoxDecoration(
-                              color: Color(0xFFE86166),
-                              borderRadius: BorderRadius.circular(15.0)
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(left:15.0),
-                                  child: Icon(Icons.event_available,
+                        ),
+                        SizedBox(height: 20.0),
+                        //completed tile
+                        Container(
+                          height: 100.0,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              gradient: LinearGradient(
+                                colors: [
+                                  Color(0xFFE86166),
+                                  Color.fromARGB(255, 245, 133, 59),
+                                ],
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                              )),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(left: 15.0),
+                                child: Icon(
+                                  Icons.event_available,
                                   size: 70,
                                   color: Colors.white,
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 20.0, horizontal: 10.0),
+                                child: Container(
+                                  child: Text(
+                                    "COMPLETED",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 20,
+                                        color: Colors.white),
                                   ),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                    vertical: 20.0, 
-                                    horizontal: 10.0
-                                  ),
-                                  child: Container(
-                                    child: Text(
-                                      "COMPLETED",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.w700,
-                                          fontSize: 25,
-                                          color: Colors.white),
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                    top: 20.0,
-                                    bottom: 20.0,
-                                    right: 15.0
-                                  ),
-                                  child: Container(
-                                    child: Text('4 Tasks',
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    top: 20.0, bottom: 20.0, right: 15.0),
+                                child: Container(
+                                  child: Text('4 Tasks',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                         fontWeight: FontWeight.w700,
                                         fontSize: 25,
                                         color: Colors.grey[200],
-                                      )
-                                    ),
-                                  ),
+                                      )),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
-                        ],
-                      )
-                    ),
+                        ),
+                      ],
+                    )),
                   )
                 ],
               ),
             ),
           ),
-          
         ],
       ),
+      //drawer
       drawer: Drawer(
         backgroundColor: Color.fromARGB(255, 255, 197, 6),
         child: Container(
@@ -699,8 +518,11 @@ class _guardianHomePageState extends State<guardianHomePage> {
               DrawerHeader(
                 child: Center(
                     child: Text(
-                  'L O G O',
-                  style: TextStyle(fontSize: 35, fontWeight: FontWeight.w700),
+                  'G e r i A s s i s',
+                  style: TextStyle(
+                    fontSize: 35,
+                    fontWeight: FontWeight.w700,
+                  ),
                 )),
               ),
               ListTile(
@@ -726,9 +548,9 @@ class _guardianHomePageState extends State<guardianHomePage> {
                 },
               ),
               ListTile(
-                leading: Icon(Icons.checklist),
+                leading: Icon(Icons.calendar_month),
                 title: Text(
-                  'Reminders',
+                  'Schedules',
                   style: TextStyle(fontSize: 20),
                 ),
                 onTap: () {
@@ -737,9 +559,9 @@ class _guardianHomePageState extends State<guardianHomePage> {
                 },
               ),
               ListTile(
-                leading: Icon(Icons.calendar_month),
+                leading: Icon(Icons.checklist),
                 title: Text(
-                  'Schedules',
+                  'Reminders',
                   style: TextStyle(fontSize: 20),
                 ),
                 onTap: () {
