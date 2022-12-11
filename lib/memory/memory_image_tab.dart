@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+
+import '../widgets/memory_image_card.dart';
 
 class MemoryImageTab extends StatelessWidget {
   const MemoryImageTab({super.key});
@@ -30,26 +33,23 @@ class MemoryImageTab extends StatelessWidget {
                 child: Text('Spare Container'),
               ),
             ),
-            //container for gridview
+            //container for gridview contents
             Expanded(
-              child: Container(
-                  child: GridView.builder(
-                      itemCount: 25,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 3),
-                      itemBuilder: (context, index) {
-                        return Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            height: 50,
-                            width: 50,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15),
-                              color: Color(0xFFE86166),
-                            ),
-                          ),
-                        );
-                      })),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: Container(
+                  child: StaggeredGridView.countBuilder(
+                    staggeredTileBuilder: (index) => index % 7 == 0
+                        ? StaggeredTile.count(2, 2)
+                        : StaggeredTile.count(1, 1),
+                    mainAxisSpacing: 8,
+                    crossAxisSpacing: 8,
+                    crossAxisCount: 3,
+                    itemCount: 25,
+                    itemBuilder: (context, index) => MemoryImageCard(),
+                  ),
+                ),
+              ),
             )
           ],
         ),
