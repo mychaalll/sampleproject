@@ -29,7 +29,7 @@ class MemoryHomePage extends StatelessWidget {
           backgroundColor: Color.fromARGB(255, 255, 197, 6),
           foregroundColor: Colors.black,
           overlayColor: Colors.black,
-          overlayOpacity: 0.4,
+          overlayOpacity: 0.5,
           spacing: 12,
           children: [
             SpeedDialChild(
@@ -39,6 +39,7 @@ class MemoryHomePage extends StatelessWidget {
               ),
               label: 'Add Image',
               backgroundColor: Colors.grey[800],
+
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => CreateEntryImage()));

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../guardian/guardian-home.dart';
+import '../memory/memory_home.dart';
+import '../reminder/reminder_home.dart';
 
 class MainDrawer extends StatelessWidget {
   const MainDrawer({super.key});
@@ -40,8 +42,8 @@ class MainDrawer extends StatelessWidget {
                 style: TextStyle(fontSize: 20),
               ),
               onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => guardianHomePage()));
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => MemoryHomePage()));
               },
             ),
             ListTile(
@@ -63,7 +65,7 @@ class MainDrawer extends StatelessWidget {
               ),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => guardianHomePage()));
+                    builder: (context) => ReminderHomePage()));
               },
             ),
             ListTile(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sampleproject/choice_page.dart';
 import 'package:sampleproject/create/create_entry_diary.dart';
 import 'package:sampleproject/create/create_entry_image.dart';
+import 'package:sampleproject/create/create_reminder.dart';
 import 'package:sampleproject/create_account.dart';
 import 'package:sampleproject/email_verification_sent.dart';
 import 'package:sampleproject/forgot_password.dart';
@@ -10,6 +11,7 @@ import 'package:sampleproject/landing_page.dart';
 import 'package:sampleproject/login_page.dart';
 import 'package:sampleproject/email_verification.dart';
 import 'package:sampleproject/memory/memory_home.dart';
+import 'package:sampleproject/reminder/reminder_home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,7 +37,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.red,
       ),
-      home: MemoryHomePage(),
+      home: ReminderHomePage(),
     );
   }
 }

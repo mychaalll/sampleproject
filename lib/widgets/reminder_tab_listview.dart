@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
-class MemoryTabListView extends StatelessWidget {
-  final String diaryTitle;
+class ReminderTabListView extends StatelessWidget {
+  final String reminderTitle;
+  final String reminderDetails;
 
-  MemoryTabListView({required this.diaryTitle});
+  ReminderTabListView({
+    required this.reminderTitle,
+    required this.reminderDetails,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +53,7 @@ class MemoryTabListView extends StatelessWidget {
             height: 250,
             decoration: BoxDecoration(
               color: Colors.grey[100],
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(30),
             ),
             child: Center(
               child: Padding(
@@ -77,7 +81,7 @@ class MemoryTabListView extends StatelessWidget {
                           Align(
                             alignment: Alignment.centerLeft,
                             child: Text(
-                              diaryTitle,
+                              reminderTitle,
                               style: TextStyle(
                                   fontSize: 25, fontWeight: FontWeight.w600),
                             ),
@@ -92,8 +96,7 @@ class MemoryTabListView extends StatelessWidget {
                             vertical: 10.0, horizontal: 10.0),
                         child: Container(
                           child: Container(
-                            child: Text(
-                                'Laborum duis ad consequat ad aliqua qui incididunt nulla aute. Elit Lorem qui enim ea enim commodo non consectetur commodo sunt irure. Ad nisi sit irure adipisicing irure officia.',
+                            child: Text(reminderDetails,
                                 maxLines: 4,
                                 overflow: TextOverflow.ellipsis,
                                 textAlign: TextAlign.justify,
@@ -109,16 +112,22 @@ class MemoryTabListView extends StatelessWidget {
                       child: Container(
                         height: 50,
                         width: 120,
-                        decoration: BoxDecoration(
-                            color: Color(0xFFE86166),
-                            borderRadius: BorderRadius.circular(12)),
                         child: Center(
-                            child: Text('View Details',
+                            child: Row(
+                          children: [
+                            Icon(
+                              Icons.watch_later,
+                              color: Color(0xFFE86166),
+                            ),
+                            SizedBox(width: 10),
+                            Text('08:00 pm',
                                 style: TextStyle(
-                                  color: Colors.white,
+                                  color: Color(0xFFE86166),
                                   fontWeight: FontWeight.normal,
                                   fontSize: 15,
-                                ))),
+                                )),
+                          ],
+                        )),
                       ),
                     )
                   ],
