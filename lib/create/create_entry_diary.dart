@@ -75,7 +75,7 @@ class _CreateEntryDiaryState extends State<CreateEntryDiary> {
                   'How is your day?',
                   style: TextStyle(
                     fontWeight: FontWeight.w900,
-                    fontSize: 30,
+                    fontSize: 35,
                     shadows: [
                       Shadow(
                         blurRadius: 10.0,
@@ -103,7 +103,7 @@ class _CreateEntryDiaryState extends State<CreateEntryDiary> {
                         border: UnderlineInputBorder(),
                         hintText: 'Enter Diary Title',
                         hintStyle: TextStyle(
-                          color: Colors.black,
+                          color: Colors.grey,
                           fontSize: 25,
                           fontWeight: FontWeight.bold,
                         )),
@@ -213,6 +213,7 @@ class _CreateEntryDiaryState extends State<CreateEntryDiary> {
               ),
             ),
             SizedBox(height: 20),
+            //paragraph
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
@@ -238,7 +239,6 @@ class _CreateEntryDiaryState extends State<CreateEntryDiary> {
                 ),
               ),
             ),
-            //paragraph
             SizedBox(height: 20),
             //save button
             Padding(
