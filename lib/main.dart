@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sampleproject/choice_page.dart';
+import 'package:sampleproject/create/create_entry_diary.dart';
 import 'package:sampleproject/create_account.dart';
 import 'package:sampleproject/email_verification_sent.dart';
 import 'package:sampleproject/forgot_password.dart';
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.red,
       ),
-      home: MemoryHomePage(),
+      home: CreateEntryDiary(),
     );
   }
 }

@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'package:sampleproject/create/create_entry_diary.dart';
 import 'package:sampleproject/memory/memory_diary_tab.dart';
 import 'package:sampleproject/memory/memory_image_tab.dart';
 import 'package:sampleproject/widgets/main_drawer.dart';
@@ -36,13 +37,17 @@ class MemoryHomePage extends StatelessWidget {
               ),
               label: 'Add Image',
               backgroundColor: Colors.grey[800],
+
               // onTap: () => add image function
             ),
             SpeedDialChild(
               child: Icon(Icons.note_add, color: Colors.white),
               label: 'Add Diary Entry',
               backgroundColor: Colors.grey[800],
-              // onTap: () => add diary function
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => CreateEntryDiary()));
+              },
             )
           ],
         ),
