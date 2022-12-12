@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:sampleproject/choice_page.dart';
 import 'package:sampleproject/create/create_entry_diary.dart';
 import 'package:sampleproject/create/create_entry_image.dart';
 import 'package:sampleproject/create/create_reminder.dart';
+import 'package:sampleproject/create/create_schedule.dart';
 import 'package:sampleproject/create_account.dart';
 import 'package:sampleproject/email_verification_sent.dart';
 import 'package:sampleproject/forgot_password.dart';
@@ -12,8 +14,13 @@ import 'package:sampleproject/login_page.dart';
 import 'package:sampleproject/email_verification.dart';
 import 'package:sampleproject/memory/memory_home.dart';
 import 'package:sampleproject/reminder/reminder_home.dart';
+import 'package:sampleproject/schedule/schedule_home.dart';
 
-void main() {
+void main() async {
+  //hive initialization
+  await Hive.initFlutter();
+  //open box
+  await Hive.openBox("Schedule_Database");
   runApp(const MyApp());
 }
 
@@ -37,7 +44,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.red,
       ),
-      home: ReminderHomePage(),
+      home: ScheduleHomePage(),
     );
   }
 }

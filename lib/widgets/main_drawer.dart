@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../guardian/guardian-home.dart';
 import '../memory/memory_home.dart';
 import '../reminder/reminder_home.dart';
+import '../schedule/schedule_home.dart';
 
 class MainDrawer extends StatelessWidget {
   const MainDrawer({super.key});
@@ -54,7 +55,7 @@ class MainDrawer extends StatelessWidget {
               ),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => guardianHomePage()));
+                    builder: (context) => ScheduleHomePage()));
               },
             ),
             ListTile(
